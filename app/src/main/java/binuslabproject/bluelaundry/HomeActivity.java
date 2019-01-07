@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         //greetings
         SharedPreferences sp = getSharedPreferences("LoginGlobalVariable", Activity.MODE_PRIVATE);
         String username = sp.getString("username","Anonymous");
-        TextView greetings = (TextView) findViewById(R.id.greetings);
+        TextView greetings = findViewById(R.id.greetings);
         greetings.setText("Hello " + username);
 
 
