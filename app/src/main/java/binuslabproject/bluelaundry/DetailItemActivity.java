@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import org.w3c.dom.Text;
 
 public class DetailItemActivity extends AppCompatActivity {
 
@@ -18,7 +21,11 @@ public class DetailItemActivity extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-
+                EditText quantity = (EditText)findViewById(R.id.txtQuantity);
+                if(Integer.parseInt(quantity.getText().toString()) < 1)
+                {
+                    
+                }
             }
         });
 
@@ -29,6 +36,8 @@ public class DetailItemActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
     }
 
 }
