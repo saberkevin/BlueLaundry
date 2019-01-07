@@ -12,7 +12,7 @@ import android.widget.ImageView;
 public class VPCarouselAdapter extends PagerAdapter {
 
     private Context context;
-    private int imageList[] = {};
+    private int imageList[] = {R.drawable.a, R.drawable.b, R.drawable.c};
     private LayoutInflater layoutInflater;
 
     public VPCarouselAdapter(Context context)
