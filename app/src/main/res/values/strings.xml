@@ -4,5 +4,6 @@
         <item>Item</item>
         <item>About</item>
         <item>Log Out</item>
+        <item>Menu</item>
     </string-array>
 </resources>

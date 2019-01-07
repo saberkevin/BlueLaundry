@@ -14,11 +14,14 @@
         android:orientation="horizontal">
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:id="@+id/menuDropDown"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentLeft="true"
+            android:backgroundTint="@color/white"
+            android:dropDownVerticalOffset="55dp"
+            android:dropDownWidth="150dp">
         </Spinner>
 
 

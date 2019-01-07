@@ -27,11 +27,18 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //spinner menu dropdown
-        Spinner menuDropDown = findViewById(R.id.menuDropDown);
+        final Spinner menuDropDown = findViewById(R.id.menuDropDown);
         ArrayAdapter<String> dropDownAdapter = new ArrayAdapter<String>(HomeActivity.this,
-                R.layout.drop_down_spinner_item, getResources().getStringArray(R.array.menuDropDown));
-        dropDownAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.drop_down_spinner_item, getResources().getStringArray(R.array.menuDropDown))
+        {
+            @Override
+            public int getCount() {
+                return 3;
+            }
+        };
+        dropDownAdapter.setDropDownViewResource(R.layout.drop_down_spinner_item_list);
         menuDropDown.setAdapter(dropDownAdapter);
+        menuDropDown.setSelection(3);
         menuDropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -39,11 +46,14 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     case 0:
 
+
                         break;
                     case 1:
 
+
                         break;
                     case 2:
+
 
                         break;
                 }
@@ -59,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("LoginGlobalVariable", Activity.MODE_PRIVATE);
         String username = sp.getString("username","Anonymous");
         TextView greetings = findViewById(R.id.greetings);
-        greetings.setText("Hello " + username);
+        greetings.setText("Hello, " + username);
 
 
         //carousel
@@ -83,20 +93,12 @@ public class HomeActivity extends AppCompatActivity {
                     switch (vp.getCurrentItem())
                     {
                         case 0:
-//                            https://developer.android.com/training/animation/screen-slide
-//                            vp.setPageTransformer(true, );
                             vp.setCurrentItem(1);
                             break;
                         case 1:
                             vp.setCurrentItem(2);
                             break;
                         case 2:
-                            vp.setCurrentItem(3);
-                            break;
-                        case 3:
-                            vp.setCurrentItem(4);
-                            break;
-                        case 4:
                             vp.setCurrentItem(0);
                             break;
                     }
