@@ -1,5 +1,6 @@
 package binuslabproject.bluelaundry;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -22,7 +23,7 @@ public class DetailItemActivity extends AppCompatActivity {
                 EditText quantity = findViewById(R.id.txtQuantity);
                 if(Integer.parseInt(quantity.getText().toString()) < 1)
                 {
-
+                    showDialog();
                 }
             }
         });
@@ -34,8 +35,12 @@ public class DetailItemActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
 
-
+    public void showDialog()
+    {
+        DetailItemDialog dialog = new DetailItemDialog();
+        dialog.show(getSupportFragmentManager(), "qtyTag");
     }
 
 }
