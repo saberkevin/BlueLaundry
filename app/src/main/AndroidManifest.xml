@@ -17,7 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".DetailItemActivity"></activity>
+        <activity android:name=".DetailItemActivity" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/DropDownSpinnerItem" />
     </application>
 
 </manifest>

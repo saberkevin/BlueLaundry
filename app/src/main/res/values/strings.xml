@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Blue Laundry</string>
+    <string-array name="menuDropDown">
+        <item>Item</item>
+        <item>About</item>
+        <item>Log Out</item>
+    </string-array>
 </resources>
