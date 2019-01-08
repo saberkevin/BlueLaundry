@@ -15,26 +15,26 @@ public class DetailItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_item);
 
-        Button btnSubmit = findViewById(R.id.btnSubmit);
-        btnSubmit.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                EditText quantity = findViewById(R.id.txtQuantity);
-                if(Integer.parseInt(quantity.getText().toString()) < 1)
-                {
-                    showDialog();
-                }
-            }
-        });
-
-        btnSubmit.setOnHoverListener(new View.OnHoverListener()
-        {
-            public boolean onHover(View v, MotionEvent event)
-            {
-                return false;
-            }
-        });
+//        Button btnSubmit = findViewById(R.id.btnSubmit);
+//        btnSubmit.setOnClickListener(new View.OnClickListener()
+//        {
+//            public void onClick(View v)
+//            {
+//                EditText quantity = findViewById(R.id.txtQuantity);
+//                if(Integer.parseInt(quantity.getText().toString()) < 1)
+//                {
+//                    showDialog();
+//                }
+//            }
+//        });
+//
+//        btnSubmit.setOnHoverListener(new View.OnHoverListener()
+//        {
+//            public boolean onHover(View v, MotionEvent event)
+//            {
+//                return false;
+//            }
+//        });
     }
 
     public void showDialog()
