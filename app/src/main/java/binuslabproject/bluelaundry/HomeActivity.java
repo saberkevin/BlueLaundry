@@ -1,6 +1,7 @@
 package binuslabproject.bluelaundry;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -45,15 +46,15 @@ public class HomeActivity extends AppCompatActivity {
                 switch(position)
                 {
                     case 0:
-
+                        startActivity(new Intent(HomeActivity.this, ItemActivity.class));
                         menuDropDown.setSelection(3);
                         break;
                     case 1:
-
+                        startActivity(new Intent(HomeActivity.this, HomeActivity.class));
                         menuDropDown.setSelection(3);
                         break;
                     case 2:
-
+                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                         menuDropDown.setSelection(3);
                         break;
                 }
