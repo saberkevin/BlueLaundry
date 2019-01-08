@@ -3,7 +3,6 @@ package binuslabproject.bluelaundry;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,24 +11,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class HomeActivity extends AppCompatActivity {
-
-    ViewPager vp;
-    VPCarouselAdapter carouselAdapter;
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_about);
 
         //spinner menu dropdown
         final Spinner menuDropDown = findViewById(R.id.menuDropDown);
-        ArrayAdapter<String> dropDownAdapter = new ArrayAdapter<String>(HomeActivity.this,
+        ArrayAdapter<String> dropDownAdapter = new ArrayAdapter<String>(AboutActivity.this,
                 R.layout.drop_down_spinner_item, getResources().getStringArray(R.array.menuDropDown))
         {
             @Override
@@ -46,15 +37,15 @@ public class HomeActivity extends AppCompatActivity {
                 switch(position)
                 {
                     case 0:
-                        startActivity(new Intent(HomeActivity.this, ItemActivity.class));
+                        startActivity(new Intent(AboutActivity.this, ItemActivity.class));
                         menuDropDown.setSelection(3);
                         break;
                     case 1:
-                        startActivity(new Intent(HomeActivity.this, AboutActivity.class));
+                        startActivity(new Intent(AboutActivity.this, AboutActivity.class));
                         menuDropDown.setSelection(3);
                         break;
                     case 2:
-                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                        startActivity(new Intent(AboutActivity.this, LoginActivity.class));
                         menuDropDown.setSelection(3);
                         break;
                 }
@@ -71,40 +62,5 @@ public class HomeActivity extends AppCompatActivity {
         String username = sp.getString("username","Anonymous");
         TextView greetings = findViewById(R.id.greetings);
         greetings.setText("Hello, " + username);
-
-
-        //carousel
-        vp = findViewById(R.id.vpCarousel);
-        carouselAdapter = new VPCarouselAdapter(getApplicationContext());
-        vp.setAdapter(carouselAdapter);
-
-        Timer timer =  new Timer();
-        timer.scheduleAtFixedRate(new CarouselTimer(), 0, 5000);
-    }
-
-    public class CarouselTimer extends TimerTask
-    {
-
-        @Override
-        public void run() {
-            HomeActivity.this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    switch (vp.getCurrentItem())
-                    {
-                        case 0:
-                            vp.setCurrentItem(1);
-                            break;
-                        case 1:
-                            vp.setCurrentItem(2);
-                            break;
-                        case 2:
-                            vp.setCurrentItem(0);
-                            break;
-                    }
-                }
-            });
-        }
     }
 }

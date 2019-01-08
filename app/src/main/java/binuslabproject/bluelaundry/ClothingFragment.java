@@ -63,8 +63,7 @@ public class ClothingFragment extends Fragment {
 
         @Override
         public View getView(int position, View view, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) getActivity().getLayoutInflater();
-            view = inflater.inflate(R.layout.item_list, null); //memakai layout yg mana
+            view = getLayoutInflater().inflate(R.layout.item_list, null);
             TextView nameText = view.findViewById(R.id.item_name);
             TextView priceText = view.findViewById(R.id.item_price);
 
