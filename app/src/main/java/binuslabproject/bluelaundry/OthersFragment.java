@@ -16,6 +16,7 @@ public class OthersFragment extends Fragment {
 
     private String[] names = {"Bed Cover","Bantal","Selimut","Karpet","Taplak Meja","Tirai"};
     private String[] prices = {"12000","23000","34000","45000","56000","67000"};
+    private String[] desc = {"Bed Cover","Bantal","Selimut","Karpet","Taplak Meja","Tirai"};
     private ListView listView;
 
     public OthersFragment() {
@@ -38,6 +39,7 @@ public class OthersFragment extends Fragment {
                 Intent intent = new Intent(OthersFragment.this.getActivity(), DetailItemActivity.class);
                 intent.putExtra("itemName",names[position]);
                 intent.putExtra("itemPrice",prices[position]);
+                intent.putExtra("itemDesc",desc[position]);
                 startActivity(intent);
                 Toast.makeText(OthersFragment.super.getContext(), names[position], Toast.LENGTH_SHORT).show();
             }
@@ -69,7 +71,9 @@ public class OthersFragment extends Fragment {
             TextView priceText = view.findViewById(R.id.item_price);
 
             nameText.setText(names[position]);
-            priceText.setText(prices[position]);
+
+            String price = "Rp. "+prices[position];
+            priceText.setText(price);
 
             return view;
         }

@@ -25,6 +25,7 @@ import java.util.Map;
 public class ClothingFragment extends Fragment {
     private String[] names = {"Kaos","Kemeja","Celana Panjang","Celana Pendek","Jaket","Hoodie"};
     private String[] prices = {"10000","20000","30000","40000","50000","60000"};
+    private String[] desc = {"Kaos","Kemeja","Celana Panjang","Celana Pendek","Jaket","Hoodie"};
     private ListView listView;
 
     public ClothingFragment() {
@@ -47,6 +48,7 @@ public class ClothingFragment extends Fragment {
                 Intent intent = new Intent(ClothingFragment.this.getActivity(), DetailItemActivity.class);
                 intent.putExtra("itemName",names[position]);
                 intent.putExtra("itemPrice",prices[position]);
+                intent.putExtra("itemDesc",desc[position]);
                 startActivity(intent);
                 Toast.makeText(ClothingFragment.super.getContext(), names[position], Toast.LENGTH_SHORT).show();
             }
@@ -79,7 +81,9 @@ public class ClothingFragment extends Fragment {
             TextView priceText = view.findViewById(R.id.item_price);
 
             nameText.setText(names[position]);
-            priceText.setText(prices[position]);
+
+            String price = "Rp. "+prices[position];
+            priceText.setText(price);
 
             return view;
         }

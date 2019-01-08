@@ -126,7 +126,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="80dp"
-                    android:text="Rp. 10000" />
+                    android:text="Rp. 0"
+                    android:id="@+id/txtSubTotal"/>
             </RelativeLayout>
 
             <Button
