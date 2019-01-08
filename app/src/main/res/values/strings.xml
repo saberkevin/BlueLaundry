@@ -13,4 +13,13 @@
         way of doing laundry business by creating a \n
         marketplace and on demand service.
     </string>
+    <string name="about_description">
+        Location: Jl MH Thamrin Kav 28-30 \n
+        Plaza Indonesia \n\n
+        Phone: 021 39838236 \n\n
+        Email: Blue_Laundry@gmail.com \n\n\n
+        If you have any questions, comments, \n
+        or feedbacks, you can contact us from \n
+        phone or email on top
+    </string>
 </resources>

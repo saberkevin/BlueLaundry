@@ -69,14 +69,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:background="@drawable/rounded_layout_no_background_color">
 
         <TextView
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/descTitle"
@@ -93,6 +93,7 @@
             android:gravity="center_horizontal"
             android:textColor="@color/black"
             android:textSize="18dp"
+            android:paddingBottom="10dp"
             android:text="@string/home_description"/>
 
     </LinearLayout>
