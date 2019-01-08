@@ -7,8 +7,9 @@
     <ListView
         android:id="@+id/myListView"
         android:layout_width="match_parent"
-        android:layout_height="400dp">
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="30dp">
     </ListView>
 
 </android.support.constraint.ConstraintLayout>
