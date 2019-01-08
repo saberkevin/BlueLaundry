@@ -66,8 +66,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //greetings
-        SharedPreferences sp = getSharedPreferences("LoginGlobalVariable", Activity.MODE_PRIVATE);
+
+        SharedPreferences sp = getSharedPreferences(LoginActivity.globalPreferenceName, Activity.MODE_PRIVATE);
         String username = sp.getString("username","Anonymous");
         TextView greetings = findViewById(R.id.greetings);
         greetings.setText("Hello, " + username);
@@ -107,4 +107,6 @@ public class HomeActivity extends AppCompatActivity {
             });
         }
     }
+
+//    public void handleReadGlobalVariables(View view){}
 }
