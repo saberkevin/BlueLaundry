@@ -38,6 +38,7 @@ public class VPCarouselAdapter extends PagerAdapter {
         View v = layoutInflater.inflate(R.layout.image_view_carousel, null);
         ImageView iv = v.findViewById(R.id.imageViewCarousel);
         iv.setImageResource(imageList[position]);
+        iv.setScaleType(ImageView.ScaleType.FIT_XY);
         ViewPager vp = (ViewPager) container;
         vp.addView(v);
 

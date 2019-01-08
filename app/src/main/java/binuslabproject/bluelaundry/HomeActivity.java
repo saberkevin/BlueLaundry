@@ -46,15 +46,15 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     case 0:
 
-
+                        menuDropDown.setSelection(3);
                         break;
                     case 1:
 
-
+                        menuDropDown.setSelection(3);
                         break;
                     case 2:
 
-
+                        menuDropDown.setSelection(3);
                         break;
                 }
             }

@@ -6,4 +6,11 @@
         <item>Log Out</item>
         <item>Menu</item>
     </string-array>
+    <string name ="home_description">
+        Blue Laundry is a digital company based in \n
+        Indonesia. Formed by young entrepreneurs \n
+        and professionals, we thrive to bring a new \n
+        way of doing laundry business by creating a \n
+        marketplace and on demand service.
+    </string>
 </resources>
