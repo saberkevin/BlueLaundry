@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(LoginActivity.globalPreferenceName, Activity.MODE_PRIVATE);
         String username = sp.getString("username","Anonymous");
         TextView greetings = findViewById(R.id.greetings);
-        greetings.setText("Hello, " + username);
+        greetings.setText("Hello, \n" + username);
 
 
         //carousel
