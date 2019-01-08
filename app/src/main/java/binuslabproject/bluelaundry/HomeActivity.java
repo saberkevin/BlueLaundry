@@ -66,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
+        //greetings
         SharedPreferences sp = getSharedPreferences(LoginActivity.globalPreferenceName, Activity.MODE_PRIVATE);
         String username = sp.getString("username","Anonymous");
         TextView greetings = findViewById(R.id.greetings);
