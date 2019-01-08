@@ -28,6 +28,10 @@ public class LoginActivity extends AppCompatActivity {
                 login(Username.getText().toString(), Password.getText().toString());
             }
 
+            public void onHover(View v){
+
+            }
+
         });
     }
 
