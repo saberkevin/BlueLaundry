@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -43,52 +44,84 @@ public class DetailItemActivity extends AppCompatActivity {
             }
         });
 
-        final EditText txtQuantity = findViewById(R.id.txtQuantity);
-        txtQuantity.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        TextView lblSubTotal = findViewById(R.id.lblSubTotal);
+        TextView txtSubTotal =  findViewById(R.id.txtSubTotal);
 
-            }
+        lblSubTotal.setVisibility(View.GONE);
+        txtSubTotal.setVisibility(View.GONE);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                TextView txtSubTotal = findViewById(R.id.txtSubTotal);
-                String subTotal = "Rp. "+(Integer.parseInt(itemPrice) * Integer.parseInt(txtQuantity.getText().toString()));
-                txtSubTotal.setText(subTotal);
-            }
+////      if quantity content change , subtotal price will change logic (on quantity text change)
+//        final EditText txtQuantity = findViewById(R.id.txtQuantity);
+//        txtQuantity.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                TextView txtSubTotal = findViewById(R.id.txtSubTotal);
+//                String subTotal = "Rp. "+(Integer.parseInt(itemPrice) * Integer.parseInt(txtQuantity.getText().toString()));
+//                txtSubTotal.setText(subTotal);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
-            @Override
-            public void afterTextChanged(Editable s) {
+        Button btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                EditText quantity = findViewById(R.id.txtQuantity);
+                String qty = quantity.getText().toString().trim();
+                if(qty.isEmpty() || qty.length() == 0 || qty.equals("") || qty == null || Integer.parseInt(qty) == 0)
+                {
+                    showDialogError();
+                }
+                else
+                {
+                    Intent myIntent = getIntent();
+                    final String itemPrice= myIntent.getStringExtra("itemPrice");
 
+                    TextView lblSubTotal = findViewById(R.id.lblSubTotal);
+                    TextView txtSubTotal =  findViewById(R.id.txtSubTotal);
+                    EditText txtQuantity = findViewById(R.id.txtQuantity);
+
+                    lblSubTotal.setVisibility(View.VISIBLE);
+                    txtSubTotal.setVisibility(View.VISIBLE);
+
+                    String subTotal = "Rp. "+(Integer.parseInt(itemPrice) * Integer.parseInt(txtQuantity.getText().toString()));
+                    txtSubTotal.setText(subTotal);
+
+                    showDialogSuccess();
+                }
             }
         });
-
-//        Button btnSubmit = findViewById(R.id.btnSubmit);
-//        btnSubmit.setOnClickListener(new View.OnClickListener()
-//        {
-//            public void onClick(View v)
-//            {
-//                EditText quantity = findViewById(R.id.txtQuantity);
-//                if(Integer.parseInt(quantity.getText().toString()) < 1)
-//                {
-//                    showDialog();
-//                }
-//            }
-//        });
-//
-//        btnSubmit.setOnHoverListener(new View.OnHoverListener()
-//        {
-//            public boolean onHover(View v, MotionEvent event)
-//            {
-//                return false;
-//            }
-//        });
     }
 
-    public void showDialog()
+    public void showDialogError()
     {
-        DetailItemDialog dialog = new DetailItemDialog();
-        dialog.show(getSupportFragmentManager(), "qtyTag");
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(DetailItemActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+        builder.setTitle("Validation Error")
+                .setMessage("Quantity must be at least one!");
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public void showDialogSuccess()
+    {
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(DetailItemActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+        builder.setTitle("Success")
+                .setMessage("A laundry service has been bought!");
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 }
